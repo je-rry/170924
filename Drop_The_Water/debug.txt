@@ -1,0 +1,75 @@
+before:test test test test test                                                                                                                                                                            
+before:test test test test test                                                                                                                                                                            
+before:test test test test test                                                                                                                                                                            
+before:test test test test test                                                                                                                                                                            
+before:test test test test test                                                                                                                                                                            
+before:test test test test test                                                                                                                                                                            
+before:test test test test test                                                                                                                                                                            
+before:test test test test test                                                                                                                                                                            
+before:test test test test test                                                                                                                                                                            
+before:test test test test test                                                                                                                                                                            
+before:test test test test test                                                                                                                                                                            
+before:test test test test test                                                                                                                                                                            
+before:test test test test test                                                                                                                                                                            
+before:test test test test test                                                                                                                                                                            
+before:test test test test test                                                                                                                                                                            
+before:test test test test test                                                                                                                                                                            
+before:test test test test test                                                                                                                                                                            
+before:test test test test test                                                                                                                                                                            
+before:test test test test test                                                                                                                                                                            
+before:test test test test test                                                                                                                                                                                                                                             
+before:test test test test test                                                                                                                                                                                                                                             
+before:test test test test test                                                                                                                                                                                                                                             
+before:test test test test test                                                                                                                                                                                                                                             
+before:test test test test test                                                                                                                                                                                                                                             
+before:test test test test test                                                                                                                                                                                                                                             
+before:test test test test test                                                                                                                                                                                                                                             
+after:{
+    "execute": true,
+    "puzzleLines": 2,
+    "puzzle": [
+        {
+            "action": "add",
+            "number1": "1",
+            "number2": "2",
+            "action": "minus",
+            "number1": "1",
+            "number2": "2"
+        }
+    ]
+}
+before:test test test test test                                                                                                                                                                                                                                                                                                                                                                               
+after:{
+    "execute": true,
+    "puzzleLines": 2,
+    "puzzle": [
+        {
+            "action": "add",
+            "number1": "1",
+            "number2": "2"
+        },
+        {
+            "action2": "add",
+            "number3": "1",
+            "number4": "2"
+        }
+    ]
+}
+before:test test test test test                                                                                                                                                                                                                                                                                                                                                                               
+after:{
+    "execute": true,
+    "puzzleLines": 2,
+    "puzzle": [
+        {
+            "action": "add",
+            "number1": "1",
+            "number2": "2"
+        },
+        {
+            "action2": "minus",
+            "number3": "5",
+            "number4": "6"
+        }
+    ]
+}
+before:test test test test test                                                                                                                                                                                                                                                                                                                                                                               
