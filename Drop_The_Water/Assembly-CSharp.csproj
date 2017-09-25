@@ -56,6 +56,7 @@
      <Compile Include="Assets\Code\ChangeStage\toMain.cs" />
      <Compile Include="Assets\Code\ChangeStage\toNextPage.cs" />
      <Compile Include="Assets\Code\ChangeStage\toSongPlay.cs" />
+     <Compile Include="Assets\Code\Default\Fade.cs" />
      <Compile Include="Assets\Code\Default\FileStreamHelper.cs" />
      <Compile Include="Assets\Code\Default\floatObject.cs" />
      <Compile Include="Assets\Code\Default\Resource.cs" />
@@ -70,7 +71,6 @@
      <Compile Include="Assets\Code\MainPage\Objects\Map Object\Water.cs" />
      <Compile Include="Assets\Code\MainPage\stageManager.cs" />
      <Compile Include="Assets\Code\MainPage\UseDLL.cs" />
-     <Compile Include="Assets\Code\screenSize.cs" />
      <Compile Include="Assets\Code\SettingPage\tutorialClicked.cs" />
      <Compile Include="Assets\Code\StagePage\SelectStage.cs" />
      <Compile Include="Assets\Code\StagePage\Swipe.cs" />

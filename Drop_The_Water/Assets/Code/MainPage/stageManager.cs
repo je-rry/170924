@@ -20,8 +20,9 @@ public class stageManager : MonoBehaviour {
 	public  List<string> answerStr = new List<string>();
 
 	public makeStage makeControls;
-	public GameObject mainAction, _tap;
+	public GameObject mainAction, _tap, answerFade;
 	GameObject act_main;
+
 
 	//Singleton
 	public static stageManager instance = null;
@@ -36,7 +37,7 @@ public class stageManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		waterPos = new Vector3(0, 8f, 0);
-		red_waterPos = new Vector3(0, 4f,0);
+		red_waterPos = new Vector3(0, 3.5f,0);
 		tapPosX = 0;
 
 		_tap.transform.position = new Vector3(tapPosX, 8.95f, 0);
@@ -83,8 +84,10 @@ public class stageManager : MonoBehaviour {
 		float movecup;
 
 		yield return new WaitForSeconds(1f);
-		for(int i=0; i < currentNum; i++)
+		yield return StartCoroutine(Fade.instance.FadeIn(answerFade.GetComponent<SpriteRenderer>(),1f));
+		for(int i=0; i < currentNum; i++) {
 				Destroy(makeStage.answerCup[i]);
+		}
 
 		makeStage.answerCup.Clear();
 
@@ -94,6 +97,7 @@ public class stageManager : MonoBehaviour {
 			firstCup = cupIndex = Resource.stage_add * 4 - 4;
 			currentNum = 3;
 			makeControls.createAnswer(st, stageMod, firstCup);
+			yield return StartCoroutine(Fade.instance.FadeOut(answerFade.GetComponent<SpriteRenderer>(),0f));
 
 			movetap = (4-currentNum) * 2.1f;
 			movecup = currentNum * 2.1f;
@@ -123,7 +127,7 @@ public class stageManager : MonoBehaviour {
 			yield return StartCoroutine(MoveCup(movecup));
 			yield return delay;
 
-			makeControls.parentCup.transform.position = new Vector3 (10f, -9.5f, 0);
+			makeControls.parentCup.transform.position = new Vector3 (10f, -12.2f, 0);
 			movecup = 6.3f;
 			yield return delay;
 			yield return StartCoroutine(MoveCup(movecup));
@@ -137,7 +141,7 @@ public class stageManager : MonoBehaviour {
 		float tapX = stageManager.instance._tap.transform.position.x;
 		int tapResult = (int)(tapX * 10f);
 		int defaultTap = (int)(m * 10f) + 1;
-		WaitForSeconds delay = new WaitForSeconds(0.005f);
+		WaitForSeconds delay = new WaitForSeconds(0.0001f);
 
 		while (tapResult > defaultTap) {
 			tapResult -= 1;
@@ -147,7 +151,7 @@ public class stageManager : MonoBehaviour {
 		}
 		
 		stageManager.instance.waterPos = new Vector3(tapX, 8f, 0);
-		stageManager.instance.red_waterPos = new Vector3(tapX, 4f, 0);
+		stageManager.instance.red_waterPos = new Vector3(tapX, 3.5f, 0);
 	}
 
 	IEnumerator MoveCup(float m) {
@@ -155,10 +159,10 @@ public class stageManager : MonoBehaviour {
 		float cupY = makeControls.parentCup.transform.position.y;
 		int cupResult = (int)(cupX * 10f);
 		int defaultCup = -((int)(m * 10f) + 1);
-		WaitForSeconds delay = new WaitForSeconds(0.005f);
+		WaitForSeconds delay = new WaitForSeconds(0.0001f);
 
 		while (cupResult > defaultCup) {
-			cupResult -= 1;
+			cupResult -= 2;
 			cupX = (float)cupResult / 10f;
 			makeControls.parentCup.transform.position = new Vector3(cupX, cupY, 0);
 			yield return delay;

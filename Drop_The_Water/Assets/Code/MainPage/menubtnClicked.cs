@@ -5,7 +5,8 @@ using UnityEngine;
 public class menubtnClicked : MonoBehaviour {
 
 	public GameObject main_menu, menu_bg, menu1, menu2, menu3, menu4, menu5;
-
+	public GameObject hintBtn;
+	public bool isBtn1;
 	bool isMenu, isPause;
 
 
@@ -21,42 +22,50 @@ public class menubtnClicked : MonoBehaviour {
 		
 		isMenu = false;
 		isPause = false;
+		isBtn1 = true;
 	}
 	
 	
 	void OnMouseDown() {
 		
-		if(!isMenu) {
+		if(isBtn1) {
+			if(!isMenu) {
 
-			main_menu.SetActive (true);
-			menu_bg.SetActive (true);
-			menu1.SetActive (true);
-			menu2.SetActive (true);
-			menu3.SetActive (true);
-			menu4.SetActive (true);
-			menu5.SetActive (true);
+				hintBtn.GetComponent<hintbtnClicked>().isBtn2 = false;
 
-			isMenu = true;
+				main_menu.SetActive (true);
+				menu_bg.SetActive (true);
+				menu1.SetActive (true);
+				menu2.SetActive (true);
+				menu3.SetActive (true);
+				menu4.SetActive (true);
+				menu5.SetActive (true);
+
+				isMenu = true;
+
 			
-		} else {
+			} else {
 
-			main_menu.SetActive (false);
-			menu_bg.SetActive (false);
-			menu1.SetActive (false);
-			menu2.SetActive (false);
-			menu3.SetActive (false);
-			menu4.SetActive (false);
-			menu5.SetActive (false);
+				hintBtn.GetComponent<hintbtnClicked>().isBtn2 = true;
 
-			isMenu = false;
-		}
+				main_menu.SetActive (false);
+				menu_bg.SetActive (false);
+				menu1.SetActive (false);
+				menu2.SetActive (false);
+				menu3.SetActive (false);
+				menu4.SetActive (false);
+				menu5.SetActive (false);
+
+				isMenu = false;
+			}
 		
-		if(!isPause) {
-			Time.timeScale = 0;
-			isPause = true;
-		} else {
-			Time.timeScale = 1;
-			isPause = false;
+			if(!isPause) {
+				Time.timeScale = 0;
+				isPause = true;
+			} else {
+				Time.timeScale = 1;
+				isPause = false;
+			}
 		}
 	}
 }

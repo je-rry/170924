@@ -213,6 +213,6 @@ public class mainEvent : MonoBehaviour {
 		//Debug.Log("tapPos : " + stageManager.instance.tapPosX);
 	
 		stageManager.instance.waterPos = new Vector3(tapX, 8f, 0);
-		stageManager.instance.red_waterPos = new Vector3(tapX, 4f, 0);
+		stageManager.instance.red_waterPos = new Vector3(tapX, 3.5f, 0);
 	}
 }

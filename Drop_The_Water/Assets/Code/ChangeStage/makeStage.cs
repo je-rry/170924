@@ -8,7 +8,7 @@ using System.IO;
 public class makeStage : MonoBehaviour {
 	public delegate void Clear ();
 
-	public GameObject cup, cupAnswer, parentCup, answer_bg;
+	public GameObject cup, cupAnswer, parentCup, answer_bg, parentAnswer;
 
 	public static int[] answerNum;
 	public static int[] gameNum;
@@ -21,6 +21,7 @@ public class makeStage : MonoBehaviour {
 
 	Vector3 answerPos;
 	Vector3 gamePos = new Vector3(0, 4f, 0);
+
 
 	// Use this for initialization
 	void Start () {
@@ -89,7 +90,8 @@ public class makeStage : MonoBehaviour {
 			GameObject _cup = Instantiate(cup, gamePos, Quaternion.identity) as GameObject;
 			gameCup.Add(_cup);
 			_cup.transform.parent = parentCup.transform;
-			gameCup[i].GetComponent<SpriteRenderer> ().sprite = Resources.Load<Sprite> ("cup/cup_" + gameNum[i]);
+			gameCup[i].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite> ("cup/cup_" + gameNum[i]);
+			StartCoroutine(Fade.instance.FadeIn(gameCup[i].GetComponent<SpriteRenderer>(),1.0f));
 			gamePos.x += 2.1f;
 		}
 	}
@@ -117,7 +119,8 @@ public class makeStage : MonoBehaviour {
 			for(int j = firstCup; j< firstCup+stageMod; j++) {
 				GameObject _cupAnswer = Instantiate(cupAnswer, answerPos, Quaternion.identity) as GameObject;
 				answerCup.Add(_cupAnswer);
-				answerCup[i].GetComponent<SpriteRenderer> ().sprite = Resources.Load<Sprite> ("cup/colorCup_" + answerNum[j]);
+				_cupAnswer.transform.parent = parentAnswer.transform;
+				answerCup[i].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite> ("cup/colorCup_" + answerNum[j]);
 				answerPos.x += 1.2f;
 				i++;
 			}
@@ -127,6 +130,7 @@ public class makeStage : MonoBehaviour {
 			for(int j = firstCup; j<firstCup+4; j++){
 				GameObject _cupAnswer = Instantiate(cupAnswer, answerPos, Quaternion.identity) as GameObject;
 				answerCup.Add(_cupAnswer);
+				_cupAnswer.transform.parent = parentAnswer.transform;
 				answerCup[i].GetComponent<SpriteRenderer> ().sprite = Resources.Load<Sprite> ("cup/colorCup_" + answerNum[j]);
 				answerPos.x += 1.2f;
 				i++;
